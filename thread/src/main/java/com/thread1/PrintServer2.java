@@ -1,4 +1,4 @@
-package com.thread;
+package com.thread1;
 
 public class PrintServer2 {
 	private final PrintQueue requests = new PrintQueue();
