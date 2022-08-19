@@ -1,6 +1,6 @@
 package com.thread0;
 
-public class ThreadTest {
+public class ThreadWithRunnable {
 	static Runnable run = () -> {
 		Thread.currentThread().setName("Calculando produto 1");
 		getCurrentThread();
