@@ -14,8 +14,9 @@ public class InterruptThreadWithJoin {
 		for (int i = 0; i < 50; i++) {
 			Random random = new Random();
 
-			inputNumbers.add((long) random.nextInt(600));
+			inputNumbers.add((long) random.nextInt(300));
 		}
+		inputNumbers.add(700000L);
 
 		List<FactorialThread> threads = new ArrayList<>();
 
@@ -24,14 +25,17 @@ public class InterruptThreadWithJoin {
 		}
 
 		for (Thread thread : threads) {
+			thread.setDaemon(true);
 			thread.start();
+
 		}
 
 		for (Thread thread : threads) {
+			thread.join(2000);
 
-			thread.join();
 		}
 
+		System.out.println("<<<ANTES do loop de checagem.>>>");
 		for (int i = 0; i < inputNumbers.size(); i++) {
 			FactorialThread factorialThread = threads.get(i);
 			if (factorialThread.isFinished()) {
@@ -41,6 +45,8 @@ public class InterruptThreadWithJoin {
 			}
 
 		}
+
+		System.exit(0);
 
 	}
 

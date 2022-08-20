@@ -22,6 +22,7 @@ public class FactorialThread extends Thread {
 		for (long i = n; i > 0; i--) {
 			tempResult = tempResult.multiply(new BigInteger(Long.toString(i)));
 		}
+		System.out.println(this.inputNumber + " factorial finished ");
 		return tempResult;
 	}
 
